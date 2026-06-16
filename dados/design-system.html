@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System — Escola do Futuro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════════ -->
+<header class="site-header">
+  <a href="#" class="site-header__logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="4" fill="#105BBA"/>
+      <circle cx="14" cy="11" r="5" stroke="#F7941D" stroke-width="2" fill="none"/>
+      <path d="M9 22 Q14 17 19 22" stroke="#F7941D" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+    Design<span class="site-header__logo-accent"> System</span>
+  </a>
+  <nav class="nav">
+    <a href="#tokens"      class="nav__link is-active">Tokens</a>
+    <a href="#tipografia"  class="nav__link">Tipografia</a>
+    <a href="#botoes"      class="nav__link">Botões</a>
+    <a href="#forms"       class="nav__link">Forms</a>
+    <a href="#tabelas"     class="nav__link">Tabelas</a>
+    <a href="#tabs"        class="nav__link">Tabs</a>
+    <a href="#layout"      class="nav__link">Layout</a>
+  </nav>
+  <button class="btn btn--accent btn--sm">v1.0</button>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <span class="hero__eyebrow">Documentação · Design System</span>
+    <h1 class="hero__title">Todas as classes,<br><mark>como e quando usar</mark></h1>
+    <p class="hero__lead">Guia completo com exemplos ao vivo e trechos de código prontos para copiar. Cada seção mostra o resultado renderizado e o markup correspondente.</p>
+    <div class="hero__actions">
+      <a href="#tokens" class="btn btn--accent btn--lg">Começar pelo início</a>
+      <a href="#botoes" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,.35);color:#fff;">Ir para Botões</a>
+    </div>
+    <p class="hero__source">HTML · CSS Custom Properties · Zero dependências</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     MAIN
+══════════════════════════════════════════════════════════ -->
+<main class="container" style="padding-top:var(--space-12);padding-bottom:var(--space-16);">
+
+  <!-- ════════════════════════════
+       01 · TOKENS
+  ════════════════════════════ -->
+  <div class="ds-section" id="tokens">
+    <p class="ds-label">01 · Tokens — CSS Custom Properties</p>
+
+    <p>Todos os valores do sistema vivem em <code>:root</code> como variáveis CSS. Use-os diretamente no seu CSS ou em estilos inline. <strong>Nunca escreva valores fixos</strong> — sempre referencie um token.</p>
+
+    <div class="alert alert--info" style="margin:var(--space-6) 0;">
+      <span class="alert__icon">ℹ️</span>
+      <div class="alert__body">
+        <p class="alert__title">Convenção de nomenclatura</p>
+        <code>--categoria-escala</code> → ex: <code>--color-blue-500</code>, <code>--space-4</code>, <code>--text-lg</code>
+      </div>
+    </div>
+
+    <h4 style="margin-bottom:var(--space-4);">Paleta — conceito de cores</h4>
+    <p>A paleta combina três famílias com papéis distintos: <strong>azul</strong> para confiança e autoridade institucional (referência a saúde pública), <strong>ciano</strong> para conscientização e prevenção (Purple Ribbon — cor universal de prevenção ao abuso de substâncias), e <strong>âmbar</strong> para atenção e dados críticos sem alarmar.</p>
+
+    <pre>/* ── Azul institucional (primário) ── */
+--color-blue-900: #031A38   /* header, hero, fundo escuro     */
+--color-blue-700: #0A3469   /* hover, bordas escuras           */
+--color-blue-500: #105BBA   /* CTA primário, links, marcadores */
+--color-blue-300: #4DA1FF   /* texto sobre fundo escuro        */
+--color-blue-200: #99CFFF   /* badge, fundo suave              */
+--color-blue-100: #E5F2FF   /* seção alternada clara           */
+
+/* ── Ciano Tecnológico (acento secundário) ── */
+--color-cyan-700: #005B8F  /* hover do acento                */
+--color-cyan-500: #0073B7  /* botão accent, section-divider  */
+--color-cyan-300: #00B4D8  /* texto sobre escuro             */
+--color-cyan-100: #E0F7FA  /* fundo badge/alerta ciano        */
+
+/* ── Âmbar atenção ── */
+--color-amber-500: #C26A00   /* alerta, dado crítico           */
+--color-amber-300: #F7941D   /* acento sobre fundo escuro, foco*/
+--color-amber-100: #FFF5E5   /* fundo warning                  */
+
+/* ── Semânticas ── */
+--color-success:       #059669
+--color-success-light: #D1FAE5
+--color-warning:       #C26A00
+--color-warning-light: #FFF5E5
+--color-error:         #DC2626
+--color-error-light:   #FEE2E2
+--color-info:          #105BBA
+--color-info-light:    #E5F2FF
+
+/* ── Neutros quentes ── */
+--color-neutral-50:  #F8FAFC   /* fundo da página               */
+--color-neutral-100: #F1F5F9   /* fundo de campos, zebra        */
+--color-neutral-200: #E2E8F0   /* bordas, divisores             */
+--color-neutral-400: #94A3B8   /* placeholder, ícones           */
+--color-neutral-600: #475569   /* texto secundário              */
+--color-neutral-800: #1E293B   /* texto principal               */
+--color-neutral-900: #0F172A   /* fundo de código, dark extreme */</pre>
+
+    <p class="label" style="margin-bottom:var(--space-4);">Swatches visuais</p>
+    <div class="ds-row">
+      <div class="swatch"><div class="swatch__color" style="background:#031A38;"></div><span class="swatch__name">blue-900</span><span class="swatch__hex">#031A38</span></div>
+      <div class="swatch"><div class="swatch__color" style="background:#0A3469;"></div><span class="swatch__name">blue-700</span><span class="swatch__hex">#0A3469</span></div>
+      <div class="swatch"><div class="swatch__color" style="background:#105BBA;"></div><span class="swatch__name">blue-500</span><span class="swatch__hex">#105BBA</span></div>
+      <div class="swatch"><div class="swatch__color" style="background:#99CFFF;"></div><span class="swatch__name">blue-200</span><span class="swatch__hex">#99CFFF</span></div>
+      <div class="swatch"><div class="swatch__color" style="background:#005B8F;"></div><span class="swatch__name">cyan-700</span><span class="swatch__hex">#005B8F</span></div>
+      <div class="swatch"><div class="swatch__color" style="background:#0073B7;"></div><span class="swatch__name">cyan-500</span><span class="swatch__hex">#0073B7</span></div>
+      <div class="swatch"><div class="swatch__color" style="background:#E0F7FA;"></div><span class="swatch__name">cyan-100</span><span class="swatch__hex">#E0F7FA</span></div>
+      <div class="swatch"><div class="swatch__color" style="background:#C26A00;"></div><span class="swatch__name">amber-500</span><span class="swatch__hex">#C26A00</span></div>
+      <div class="swatch"><div class="swatch__color" style="background:#F7941D;"></div><span class="swatch__name">amber-300</span><span class="swatch__hex">#F7941D</span></div>
+      <div class="swatch"><div class="swatch__color" style="background:#059669;"></div><span class="swatch__name">success</span><span class="swatch__hex">#059669</span></div>
+      <div class="swatch"><div class="swatch__color" style="background:#DC2626;"></div><span class="swatch__name">error</span><span class="swatch__hex">#DC2626</span></div>
+      <div class="swatch"><div class="swatch__color" style="background:#F8FAFC;border:1px solid #D6D3CE;"></div><span class="swatch__name">neutral-50</span><span class="swatch__hex">#F8FAFC</span></div>
+      <div class="swatch"><div class="swatch__color" style="background:#1E293B;"></div><span class="swatch__name">neutral-800</span><span class="swatch__hex">#1E293B</span></div>
+    </div>
+
+    <h4 style="margin:var(--space-8) 0 var(--space-4);">Cores de dado — Gênero</h4>
+    <pre>--color-data-male:   #105BBA   /* Azul  — Homem  */
+--color-data-female: #0073B7   /* Ciano — Mulher */
+
+/* Uso em barras e gráficos */
+&lt;div class="data-bar__fill data-bar__fill--male"  style="width:62%"&gt;&lt;/div&gt;
+&lt;div class="data-bar__fill data-bar__fill--female" style="width:55%"&gt;&lt;/div&gt;</pre>
+
+    <h4 style="margin:var(--space-8) 0 var(--space-4);">Espaçamento — escala base 4px</h4>
+    <pre>--space-1:  0.25rem  /*  4px */    --space-8:  2rem    /* 32px */
+--space-2:  0.5rem   /*  8px */    --space-10: 2.5rem  /* 40px */
+--space-3:  0.75rem  /* 12px */    --space-12: 3rem    /* 48px */
+--space-4:  1rem     /* 16px */    --space-16: 4rem    /* 64px */
+--space-6:  1.5rem   /* 24px */    --space-24: 6rem    /* 96px */
+
+/* Uso */
+.meu-bloco {
+  padding:       var(--space-4) var(--space-6);
+  margin-bottom: var(--space-8);
+  gap:           var(--space-3);
+}</pre>
+
+    <h4 style="margin:var(--space-8) 0 var(--space-4);">Tipografia — tokens</h4>
+    <pre>--font-display: 'Sora'       /* títulos e stats       */
+--font-body:    'Inter'      /* corpo e UI             */
+--font-mono:    'IBM Plex Mono'  /* código e dados     */
+
+/* Tamanhos */
+--text-xs: 0.75rem  --text-sm: 0.875rem  --text-base: 1rem
+--text-lg: 1.125rem --text-xl: 1.25rem   --text-2xl:  1.5rem
+--text-4xl: 2.25rem --text-5xl: 3rem     --text-6xl:  3.75rem
+
+/* Pesos */
+--weight-light: 300  --weight-regular: 400  --weight-medium: 500
+--weight-semibold: 600  --weight-bold: 700  --weight-extrabold: 800
+
+/* Altura de linha */
+--leading-tight: 1.2  --leading-normal: 1.5  --leading-relaxed: 1.7</pre>
+
+    <h4 style="margin:var(--space-8) 0 var(--space-4);">Bordas, sombras e z-index</h4>
+    <pre>/* Radius */
+--border-radius-sm:   4px    --border-radius-md:  8px
+--border-radius-lg:  12px    --border-radius-pill:999px
+
+/* Sombras — todas têm tonalidade azul-escura */
+--shadow-xs: 0 1px 2px rgba(13,43,78,.06)
+--shadow-sm: 0 2px 6px rgba(13,43,78,.10)
+--shadow-md: 0 4px 16px rgba(13,43,78,.13)
+--shadow-lg: 0 8px 32px rgba(13,43,78,.17)
+
+/* Transições */
+--transition-fast: 120ms ease   /* hover de botões, inputs  */
+--transition-base: 220ms ease   /* cards, painéis           */
+--transition-slow: 360ms ease   /* barras de dados          */
+
+/* Z-index */
+--z-dropdown: 100  --z-modal: 300  --z-nav: 500</pre>
+  </div>
+
+  <!-- ════════════════════════════
+       02 · TIPOGRAFIA
+  ════════════════════════════ -->
+  <div class="ds-section" id="tipografia">
+    <p class="ds-label">02 · Tipografia</p>
+
+    <p>Os elementos <code>h1</code>–<code>h6</code> e <code>p</code> já estão estilizados globalmente. Use tags semânticas corretas — o CSS cuida da aparência. Classes utilitárias complementam papéis específicos.</p>
+
+    <h4 style="margin-bottom:var(--space-4);">Headings — tag direta</h4>
+    <pre>&lt;h1&gt;Título principal da página&lt;/h1&gt;    &lt;!-- Sora ExtraBold 48px --&gt;
+&lt;h2&gt;Título de seção&lt;/h2&gt;               &lt;!-- Sora Bold 36px       --&gt;
+&lt;h3&gt;Subtítulo de bloco&lt;/h3&gt;            &lt;!-- Sora Bold 30px       --&gt;
+&lt;h4&gt;Título de card ou componente&lt;/h4&gt;  &lt;!-- Sora SemiBold 24px   --&gt;
+&lt;h5&gt;Rótulo agrupador&lt;/h5&gt;             &lt;!-- Sora SemiBold 20px   --&gt;
+&lt;h6&gt;Rótulo menor&lt;/h6&gt;                 &lt;!-- Sora Medium 18px     --&gt;</pre>
+
+    <div style="border:1px solid var(--border-color);border-radius:var(--border-radius-md);padding:var(--space-6);margin-bottom:var(--space-8);">
+      <h1>h1 — Sora ExtraBold 48px</h1>
+      <h2>h2 — Sora Bold 36px</h2>
+      <h3>h3 — Sora Bold 30px</h3>
+      <h4>h4 — Sora SemiBold 24px</h4>
+      <h5>h5 — Sora SemiBold 20px</h5>
+      <h6>h6 — Sora Medium 18px</h6>
+    </div>
+
+    <h4 style="margin-bottom:var(--space-4);">Classes utilitárias de texto</h4>
+    <pre>&lt;p class="lead"&gt;Texto introdutório grande — Inter Light 20px.&lt;/p&gt;
+
+&lt;span class="stat"&gt;17,2%&lt;/span&gt;       &lt;!-- número grande de destaque --&gt;
+
+&lt;p class="label"&gt;Grandes Regiões&lt;/p&gt;  &lt;!-- caixa alta, espaçamento --&gt;
+
+&lt;p class="caption"&gt;Fonte: PeNSE 2024&lt;/p&gt;  &lt;!-- nota rodapé, 12px --&gt;</pre>
+
+    <div style="border:1px solid var(--border-color);border-radius:var(--border-radius-md);padding:var(--space-6);margin-bottom:var(--space-8);display:flex;flex-direction:column;gap:var(--space-4);">
+      <p class="lead">Lead — texto introdutório em Inter Light 20px.</p>
+      <span class="stat">17,2%</span>
+      <p class="label">Label — rótulo em caixa alta</p>
+      <p class="caption">Caption — nota, fonte ou metadado em 12px</p>
+    </div>
+
+    <h4 style="margin-bottom:var(--space-4);">Elementos inline</h4>
+    <pre>&lt;strong&gt;negrito&lt;/strong&gt;          &lt;!-- peso 700                    --&gt;
+&lt;em&gt;itálico&lt;/em&gt;                  &lt;!-- ênfase semântica            --&gt;
+&lt;mark&gt;destaque&lt;/mark&gt;             &lt;!-- fundo âmbar-300             --&gt;
+&lt;code&gt;trecho de código&lt;/code&gt;    &lt;!-- mono, fundo neutral-100     --&gt;
+&lt;kbd&gt;Ctrl+K&lt;/kbd&gt;                &lt;!-- tecla de atalho             --&gt;
+&lt;small&gt;nota discreta&lt;/small&gt;     &lt;!-- 12px, neutral-400           --&gt;
+&lt;a href="#"&gt;link&lt;/a&gt;             &lt;!-- azul-500, underline offset  --&gt;</pre>
+
+    <div style="border:1px solid var(--border-color);border-radius:var(--border-radius-md);padding:var(--space-5);margin-bottom:var(--space-8);">
+      <p><strong>negrito</strong> · <em>itálico</em> · <mark>destaque</mark> · <code>código</code> · <kbd>Ctrl+K</kbd> · <small>pequeno</small> · <a href="#">link</a></p>
+    </div>
+
+    <h4 style="margin-bottom:var(--space-4);">Blockquote, pre e hr</h4>
+    <pre>&lt;blockquote&gt;
+  Borda âmbar à esquerda. Ideal para citações de
+  dados, destaques clínicos ou conclusões relevantes.
+&lt;/blockquote&gt;
+
+&lt;pre&gt;Bloco de código: fundo neutral-900, texto blue-300.&lt;/pre&gt;
+
+&lt;hr /&gt;  &lt;!-- divisor 1px solid --border-color --&gt;</pre>
+
+    <blockquote>Blockquote — borda âmbar, fundo levemente amarelado. Use para citações de dados ou conclusões de destaque.</blockquote>
+    <hr />
+    <p class="caption" style="margin-top:var(--space-2);">↑ <code>&lt;hr&gt;</code> renderizado acima</p>
+
+    <h4 style="margin:var(--space-8) 0 var(--space-4);">Listas</h4>
+    <pre>&lt;!-- ul: bullet azul automático --&gt;
+&lt;ul&gt;
+  &lt;li&gt;Item A&lt;/li&gt;
+  &lt;li&gt;Item B&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- ul com check verde: adicione .list--check --&gt;
+&lt;ul class="list--check"&gt;
+  &lt;li&gt;Requisito cumprido&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- ol: marcador azul, numerado --&gt;
+&lt;ol&gt;
+  &lt;li&gt;Primeiro passo&lt;/li&gt;
+  &lt;li&gt;Segundo passo&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- dl: glossário com borda lateral --&gt;
+&lt;dl&gt;
+  &lt;dt&gt;Termo&lt;/dt&gt;
+  &lt;dd&gt;Definição do termo aqui.&lt;/dd&gt;
+&lt;/dl&gt;</pre>
+
+    <div class="grid grid--3" style="margin-top:var(--space-4);">
+      <div>
+        <p class="label" style="margin-bottom:var(--space-3);">ul — bullet azul</p>
+        <ul>
+          <li>Primeiro item da lista</li>
+          <li>Segundo item da lista</li>
+          <li>Terceiro item da lista</li>
+        </ul>
+      </div>
+      <div>
+        <p class="label" style="margin-bottom:var(--space-3);">ul.list--check</p>
+        <ul class="list--check">
+          <li>Requisito A atendido</li>
+          <li>Requisito B atendido</li>
+          <li>Requisito C pendente</li>
+        </ul>
+      </div>
+      <div>
+        <p class="label" style="margin-bottom:var(--space-3);">ol e dl</p>
+        <ol>
+          <li>Primeiro passo</li>
+          <li>Segundo passo</li>
+          <li>Terceiro passo</li>
+        </ol>
+        <dl style="margin-top:var(--space-4);">
+          <dt>Token</dt>
+          <dd>Variável CSS reutilizável do sistema</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       03 · BOTÕES
+  ════════════════════════════ -->
+  <div class="ds-section" id="botoes">
+    <p class="ds-label">03 · Botões</p>
+
+    <p>Todo botão começa com <code>.btn</code>. Combine com um modificador de <strong>variante</strong> e opcionalmente um de <strong>tamanho</strong>. A base cuida de layout, foco, transição e estado desabilitado.</p>
+
+    <h4 style="margin-bottom:var(--space-4);">Variantes</h4>
+    <pre>&lt;button class="btn btn--primary"&gt;Primário&lt;/button&gt;
+&lt;!-- Azul institucional. Ação principal — uma por contexto. --&gt;
+
+&lt;button class="btn btn--secondary"&gt;Secundário&lt;/button&gt;
+&lt;!-- Outline azul. Ação secundária ou alternativa. --&gt;
+
+&lt;button class="btn btn--accent"&gt;Acento&lt;/button&gt;
+&lt;!-- Ciano. CTA em hero ou destaque de conscientização. --&gt;
+
+&lt;button class="btn btn--ghost"&gt;Ghost&lt;/button&gt;
+&lt;!-- Sem preenchimento. Ações terciárias, cancelar. --&gt;
+
+&lt;button class="btn btn--danger"&gt;Destrutivo&lt;/button&gt;
+&lt;!-- Vermelho. Excluir, ação irreversível. --&gt;
+
+&lt;button class="btn btn--dark"&gt;Dark&lt;/button&gt;
+&lt;!-- Azul-900. Use sobre fundos azuis escuros. --&gt;</pre>
+
+    <div class="ds-row">
+      <button class="btn btn--primary">Primário</button>
+      <button class="btn btn--secondary">Secundário</button>
+      <button class="btn btn--accent">Acento</button>
+      <button class="btn btn--ghost">Ghost</button>
+      <button class="btn btn--danger">Destrutivo</button>
+      <button class="btn btn--dark">Dark</button>
+    </div>
+
+    <h4 style="margin-bottom:var(--space-4);">Tamanhos</h4>
+    <pre>&lt;button class="btn btn--primary btn--sm"&gt;Pequeno&lt;/button&gt;
+&lt;button class="btn btn--primary"&gt;Médio (padrão)&lt;/button&gt;
+&lt;button class="btn btn--primary btn--lg"&gt;Grande&lt;/button&gt;
+&lt;button class="btn btn--primary btn--xl"&gt;Extra grande&lt;/button&gt;
+&lt;button class="btn btn--primary btn--full"&gt;Largura total&lt;/button&gt;</pre>
+
+    <div class="ds-row" style="align-items:center;">
+      <button class="btn btn--primary btn--sm">Pequeno</button>
+      <button class="btn btn--primary">Médio</button>
+      <button class="btn btn--primary btn--lg">Grande</button>
+      <button class="btn btn--primary btn--xl">Extra grande</button>
+    </div>
+    <div style="max-width:360px;margin-bottom:var(--space-6);">
+      <button class="btn btn--primary btn--full">Largura total</button>
+    </div>
+
+    <h4 style="margin-bottom:var(--space-4);">Estados e uso como link</h4>
+    <pre>&lt;!-- Desabilitado: atributo nativo — opacidade 45%, sem cursor --&gt;
+&lt;button class="btn btn--primary" disabled&gt;Desabilitado&lt;/button&gt;
+
+&lt;!-- Como link de navegação --&gt;
+&lt;a href="/pagina" class="btn btn--primary"&gt;Ir para página&lt;/a&gt;
+&lt;a href="/arquivo.pdf" class="btn btn--secondary btn--sm"&gt;Baixar PDF&lt;/a&gt;</pre>
+
+    <div class="ds-row">
+      <button class="btn btn--primary" disabled>Primário</button>
+      <button class="btn btn--secondary" disabled>Secundário</button>
+      <button class="btn btn--accent" disabled>Acento</button>
+      <a href="#" class="btn btn--primary">Link como botão</a>
+      <a href="#" class="btn btn--secondary btn--sm">Link secundário</a>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       04 · FORMULÁRIOS
+  ════════════════════════════ -->
+  <div class="ds-section" id="forms">
+    <p class="ds-label">04 · Formulários e Inputs</p>
+
+    <p>Envolva cada campo em <code>.form-group</code>. Use <code>.form-label</code> + campo + <code>.form-hint</code> opcional. O foco azul e o anel âmbar de acessibilidade são automáticos.</p>
+
+    <h4 style="margin-bottom:var(--space-4);">Estrutura de um campo</h4>
+    <pre>&lt;div class="form-group"&gt;
+  &lt;label class="form-label"&gt;
+    Nome do campo &lt;span class="required"&gt;*&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;input class="form-input" type="text" placeholder="Escreva aqui" /&gt;
+  &lt;span class="form-hint"&gt;Texto de ajuda opcional.&lt;/span&gt;
+&lt;/div&gt;</pre>
+
+    <h4 style="margin:var(--space-6) 0 var(--space-4);">Tipos de campo e variações</h4>
+    <pre>&lt;input class="form-input" type="text" /&gt;        &lt;!-- padrão        --&gt;
+&lt;input class="form-input form-input--sm" /&gt;    &lt;!-- compacto       --&gt;
+&lt;input class="form-input form-input--lg" /&gt;    &lt;!-- grande         --&gt;
+&lt;textarea class="form-textarea"&gt;&lt;/textarea&gt;   &lt;!-- redimensionável--&gt;
+
+&lt;select class="form-select"&gt;                   &lt;!-- seta customizada--&gt;
+  &lt;option&gt;Opção A&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- Input com ícone à esquerda --&gt;
+&lt;div class="input-group"&gt;
+  &lt;span class="input-icon"&gt;🔍&lt;/span&gt;
+  &lt;input class="form-input" type="text" placeholder="Buscar..." /&gt;
+&lt;/div&gt;
+
+&lt;!-- Estados de validação --&gt;
+&lt;input class="form-input is-error" /&gt;
+&lt;span class="form-hint is-error"&gt;Mensagem de erro.&lt;/span&gt;
+&lt;input class="form-input is-success" /&gt;</pre>
+
+    <div class="grid grid--2" style="margin-top:var(--space-4);">
+      <div>
+        <div class="form-group">
+          <label class="form-label">Texto simples <span class="required">*</span></label>
+          <input class="form-input" type="text" placeholder="Digite algo..." />
+          <span class="form-hint">Dica de preenchimento opcional.</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Com ícone</label>
+          <div class="input-group">
+            <span class="input-icon">🔍</span>
+            <input class="form-input" type="text" placeholder="Buscar..." />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Select</label>
+          <select class="form-select">
+            <option>Escolha uma opção</option>
+            <option>Opção A</option>
+            <option>Opção B</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Estado de erro</label>
+          <input class="form-input is-error" type="text" value="valor inválido" />
+          <span class="form-hint is-error">Mensagem de erro descritiva aqui.</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Estado válido</label>
+          <input class="form-input is-success" type="text" value="valor válido ✓" />
+        </div>
+      </div>
+      <div>
+        <div class="form-group">
+          <label class="form-label">Textarea</label>
+          <textarea class="form-textarea" placeholder="Texto longo..."></textarea>
+        </div>
+        <h5 style="margin-bottom:var(--space-3);">Checkbox e Radio</h5>
+        <pre style="font-size:11px;margin-bottom:var(--space-4);">&lt;div class="form-check"&gt;
+  &lt;input type="checkbox" id="c1" /&gt;
+  &lt;label class="form-check-label" for="c1"&gt;
+    Opção
+  &lt;/label&gt;
+&lt;/div&gt;</pre>
+        <div class="form-check">
+          <input type="checkbox" id="ck1" checked />
+          <label class="form-check-label" for="ck1">Checkbox marcado</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="ck2" />
+          <label class="form-check-label" for="ck2">Checkbox desmarcado</label>
+        </div>
+        <div class="form-check" style="margin-top:var(--space-3);">
+          <input type="radio" id="ra" name="demo" checked />
+          <label class="form-check-label" for="ra">Radio selecionado</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" id="rb" name="demo" />
+          <label class="form-check-label" for="rb">Radio alternativo</label>
+        </div>
+        <div class="form-group" style="margin-top:var(--space-5);">
+          <label class="form-label">Range slider</label>
+          <pre style="font-size:11px;margin-bottom:var(--space-2);">&lt;input type="range" min="0" max="100" value="40" /&gt;</pre>
+          <input type="range" min="0" max="100" value="40" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       05 · TABELAS
+  ════════════════════════════ -->
+  <div class="ds-section" id="tabelas">
+    <p class="ds-label">05 · Tabelas</p>
+
+    <p>Envolva <code>&lt;table&gt;</code> em <code>.table-wrapper</code> para scroll horizontal automático em mobile e o estilo de borda com sombra.</p>
+
+    <h4 style="margin-bottom:var(--space-4);">Estrutura completa</h4>
+    <pre>&lt;div class="table-wrapper"&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Coluna A&lt;/th&gt;
+        &lt;th&gt;Coluna B&lt;/th&gt;
+        &lt;th&gt;Tendência&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Valor A&lt;/td&gt;
+        &lt;td&gt;Valor B&lt;/td&gt;
+        &lt;td&gt;
+          &lt;span class="td-badge td-badge--up"&gt;↑ +2pp&lt;/span&gt;
+          &lt;span class="td-badge td-badge--down"&gt;↓ -1pp&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+      &lt;tr&gt;&lt;td colspan="3"&gt;Nota de rodapé.&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tfoot&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- Compacta: célula com menos padding --&gt;
+&lt;table class="table--compact"&gt;...&lt;/table&gt;</pre>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Região</th>
+            <th>Categoria</th>
+            <th>Valor atual</th>
+            <th>Valor anterior</th>
+            <th>Tendência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td><span class="badge badge--blue">Nacional</span></td>
+            <td>8,5%</td>
+            <td>7,2%</td>
+            <td><span class="td-badge td-badge--up">↑ +1,3pp</span></td>
+          </tr>
+          <tr>
+            <td>Sul</td>
+            <td><span class="badge badge--purple">Regional</span></td>
+            <td>9,8%</td>
+            <td>7,7%</td>
+            <td><span class="td-badge td-badge--up">↑ +2,1pp</span></td>
+          </tr>
+          <tr>
+            <td>Nordeste</td>
+            <td><span class="badge badge--purple">Regional</span></td>
+            <td>6,1%</td>
+            <td>6,4%</td>
+            <td><span class="td-badge td-badge--down">↓ -0,3pp</span></td>
+          </tr>
+          <tr>
+            <td>Norte</td>
+            <td><span class="badge badge--purple">Regional</span></td>
+            <td>7,0%</td>
+            <td>6,1%</td>
+            <td><span class="td-badge td-badge--up">↑ +0,9pp</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5">
+              <code>.td-badge--up</code> para alta · <code>.td-badge--down</code> para queda · badges combinam com qualquer célula
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       06 · TABS
+  ════════════════════════════ -->
+  <div class="ds-section" id="tabs">
+    <p class="ds-label">06 · Abas (Tabs)</p>
+
+    <p>Tabs são CSS + JS mínimo incluso no rodapé. O JS <code>switchTab(groupId, triggerEl, panelId)</code> move a classe <code>.is-active</code> entre triggers e painéis.</p>
+
+    <h4 style="margin-bottom:var(--space-4);">Estrutura HTML obrigatória</h4>
+    <pre>&lt;!-- 1. Wrapper com id único por grupo --&gt;
+&lt;div class="tabs" id="meu-grupo"&gt;
+
+  &lt;!-- 2. Lista de triggers --&gt;
+  &lt;div class="tabs__list" role="tablist"&gt;
+    &lt;button class="tabs__trigger is-active"
+      onclick="switchTab('meu-grupo', this, 'painel-a')"&gt;
+      Aba 1
+    &lt;/button&gt;
+    &lt;button class="tabs__trigger"
+      onclick="switchTab('meu-grupo', this, 'painel-b')"&gt;
+      Aba 2
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 3. Painéis — id = terceiro arg do switchTab --&gt;
+  &lt;div id="painel-a" class="tabs__panel is-active"&gt;
+    Conteúdo da Aba 1
+  &lt;/div&gt;
+  &lt;div id="painel-b" class="tabs__panel"&gt;
+    Conteúdo da Aba 2
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+    <h4 style="margin:var(--space-6) 0 var(--space-3);">Variante padrão — underline azul</h4>
+    <div class="tabs" id="tabs-doc1">
+      <div class="tabs__list" role="tablist">
+        <button class="tabs__trigger is-active" onclick="switchTab('tabs-doc1',this,'td1a')">Aba Ativa</button>
+        <button class="tabs__trigger" onclick="switchTab('tabs-doc1',this,'td1b')">Segunda</button>
+        <button class="tabs__trigger" onclick="switchTab('tabs-doc1',this,'td1c')">Terceira</button>
+      </div>
+      <div id="td1a" class="tabs__panel is-active"><p>Conteúdo da <strong>primeira aba</strong>. A classe <code>.is-active</code> no trigger acende o underline azul e exibe o painel.</p></div>
+      <div id="td1b" class="tabs__panel"><p>Conteúdo da <strong>segunda aba</strong>. Pode ter qualquer markup: tabelas, cards, formulários.</p></div>
+      <div id="td1c" class="tabs__panel"><p>Conteúdo da <strong>terceira aba</strong>. O <code>.tabs__list</code> faz scroll horizontal automaticamente em mobile.</p></div>
+    </div>
+
+    <h4 style="margin:var(--space-8) 0 var(--space-3);">Variante pill — <code>.tabs--pill</code></h4>
+    <pre>&lt;div class="tabs tabs--pill" id="meu-grupo"&gt;...&lt;/div&gt;</pre>
+    <div class="tabs tabs--pill" id="tabs-doc2">
+      <div class="tabs__list" role="tablist">
+        <button class="tabs__trigger is-active" onclick="switchTab('tabs-doc2',this,'td2a')">Opção A</button>
+        <button class="tabs__trigger" onclick="switchTab('tabs-doc2',this,'td2b')">Opção B</button>
+        <button class="tabs__trigger" onclick="switchTab('tabs-doc2',this,'td2c')">Opção C</button>
+      </div>
+      <div id="td2a" class="tabs__panel is-active"><p>Pill: fundo cinza quente, ativa fica branca com sombra. Ideal para filtros e alternadores curtos.</p></div>
+      <div id="td2b" class="tabs__panel"><p>Sem borda inferior — visual encapsulado, diferente do underline padrão.</p></div>
+      <div id="td2c" class="tabs__panel"><p>Terceira opção do grupo pill.</p></div>
+    </div>
+
+    <h4 style="margin:var(--space-8) 0 var(--space-3);">Variante dark — <code>.tabs--dark</code></h4>
+    <pre>&lt;div class="tabs tabs--dark" id="meu-grupo"&gt;...&lt;/div&gt;
+&lt;!-- Cabeçalho azul-900, aba ativa em âmbar-300 --&gt;</pre>
+    <div class="tabs tabs--dark" id="tabs-doc3">
+      <div class="tabs__list" role="tablist">
+        <button class="tabs__trigger is-active" onclick="switchTab('tabs-doc3',this,'td3a')">Dashboard</button>
+        <button class="tabs__trigger" onclick="switchTab('tabs-doc3',this,'td3b')">Relatório</button>
+        <button class="tabs__trigger" onclick="switchTab('tabs-doc3',this,'td3c')">Exportar</button>
+      </div>
+      <div id="td3a" class="tabs__panel is-active" style="background:var(--color-blue-900);padding:var(--space-6);border-radius:0 0 var(--border-radius-md) var(--border-radius-md);"><p style="color:rgba(255,255,255,.78);">Painel escuro. Use esta variante dentro de <code>.section--dark</code> ou em cards com <code>.card--dark</code>.</p></div>
+      <div id="td3b" class="tabs__panel" style="background:var(--color-blue-900);padding:var(--space-6);border-radius:0 0 var(--border-radius-md) var(--border-radius-md);"><p style="color:rgba(255,255,255,.78);">Segundo painel do tema dark.</p></div>
+      <div id="td3c" class="tabs__panel" style="background:var(--color-blue-900);padding:var(--space-6);border-radius:0 0 var(--border-radius-md) var(--border-radius-md);"><p style="color:rgba(255,255,255,.78);">Terceiro painel do tema dark.</p></div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       07 · CARDS
+  ════════════════════════════ -->
+  <div class="ds-section">
+    <p class="ds-label">07 · Cards</p>
+
+    <h4 style="margin-bottom:var(--space-4);">Estrutura base</h4>
+    <pre>&lt;div class="card"&gt;
+  &lt;div class="card__header"&gt;
+    &lt;h5 class="card__title"&gt;Título do card&lt;/h5&gt;
+  &lt;/div&gt;
+  &lt;div class="card__body"&gt;
+    &lt;p&gt;Conteúdo principal.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="card__footer"&gt;
+    &lt;button class="btn btn--primary btn--sm"&gt;Ação&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+    <h4 style="margin:var(--space-6) 0 var(--space-4);">Variantes</h4>
+    <pre>&lt;div class="card card--stat"&gt;   &lt;!-- stat centralizada + borda azul top  --&gt;
+&lt;div class="card card--dark"&gt;   &lt;!-- fundo azul-900, texto claro          --&gt;
+&lt;div class="card card--accent"&gt; &lt;!-- borda esquerda roxa                  --&gt;</pre>
+
+    <div class="grid grid--3" style="margin-top:var(--space-4);">
+      <div class="card">
+        <div class="card__header"><h5 class="card__title">Card padrão</h5></div>
+        <div class="card__body"><p>Header, body e footer. Hover aumenta a sombra automaticamente via <code>--shadow-md</code>.</p></div>
+        <div class="card__footer"><button class="btn btn--primary btn--sm">Ação</button></div>
+      </div>
+      <div class="card card--stat">
+        <span class="stat">42%</span>
+        <p class="label" style="margin-top:var(--space-3);">card--stat</p>
+        <p class="caption">Borda top azul · conteúdo centralizado</p>
+        <span class="badge badge--purple" style="margin-top:var(--space-3);">Dado relevante</span>
+      </div>
+      <div class="card card--dark">
+        <div class="card__header"><h5 class="card__title">card--dark</h5></div>
+        <div class="card__body"><p>Fundo blue-900, texto claro. Header e footer respeitam a paleta escura.</p></div>
+        <div class="card__footer"><button class="btn btn--accent btn--sm">Ação</button></div>
+      </div>
+      <div class="card card--accent">
+        <div class="card__body">
+          <p class="label">card--accent</p>
+          <p style="margin-top:var(--space-2);">Borda esquerda roxa. Destaca um item entre vários cards ou uma informação crítica.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       08 · BADGES E ALERTAS
+  ════════════════════════════ -->
+  <div class="ds-section">
+    <p class="ds-label">08 · Badges e Alertas</p>
+
+    <div class="grid grid--2">
+      <div>
+        <h4 style="margin-bottom:var(--space-4);">Badges</h4>
+        <pre>&lt;span class="badge badge--blue"&gt;Info&lt;/span&gt;
+&lt;span class="badge badge--purple"&gt;Conscientização&lt;/span&gt;
+&lt;span class="badge badge--amber"&gt;Atenção&lt;/span&gt;
+&lt;span class="badge badge--green"&gt;Positivo&lt;/span&gt;
+&lt;span class="badge badge--red"&gt;Crítico&lt;/span&gt;
+&lt;span class="badge badge--gray"&gt;Neutro&lt;/span&gt;
+&lt;span class="badge badge--dark"&gt;Escuro&lt;/span&gt;</pre>
+        <div class="ds-row" style="margin-top:var(--space-4);">
+          <span class="badge badge--blue">Info</span>
+          <span class="badge badge--purple">Conscientização</span>
+          <span class="badge badge--amber">Atenção</span>
+          <span class="badge badge--green">Positivo</span>
+          <span class="badge badge--red">Crítico</span>
+          <span class="badge badge--gray">Neutro</span>
+          <span class="badge badge--dark">Escuro</span>
+        </div>
+      </div>
+      <div>
+        <h4 style="margin-bottom:var(--space-4);">Alertas</h4>
+        <pre>&lt;div class="alert alert--info"&gt;
+  &lt;span class="alert__icon"&gt;ℹ️&lt;/span&gt;
+  &lt;div class="alert__body"&gt;
+    &lt;p class="alert__title"&gt;Título&lt;/p&gt;
+    Mensagem descritiva.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 4 variantes --&gt;
+alert--info / alert--success
+alert--warning / alert--error</pre>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:var(--space-3);margin-top:var(--space-4);">
+      <div class="alert alert--info">
+        <span class="alert__icon">ℹ️</span>
+        <div class="alert__body"><p class="alert__title">alert--info</p>Informação contextual. Use para notas metodológicas ou avisos neutros.</div>
+      </div>
+      <div class="alert alert--success">
+        <span class="alert__icon">✓</span>
+        <div class="alert__body"><p class="alert__title">alert--success</p>Operação concluída com sucesso. Dado processado ou etapa cumprida.</div>
+      </div>
+      <div class="alert alert--warning">
+        <span class="alert__icon">⚠️</span>
+        <div class="alert__body"><p class="alert__title">alert--warning</p>Atenção necessária. Dado com alta variabilidade ou cobertura parcial.</div>
+      </div>
+      <div class="alert alert--error">
+        <span class="alert__icon">✕</span>
+        <div class="alert__body"><p class="alert__title">alert--error</p>Erro ou dado suprimido por insuficiência amostral.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       09 · LAYOUT
+  ════════════════════════════ -->
+  <div class="ds-section" id="layout">
+    <p class="ds-label">09 · Layout — Container, Grid, Sections, Header, Footer</p>
+
+    <h4 style="margin-bottom:var(--space-4);">Container</h4>
+    <pre>&lt;div class="container"&gt;...&lt;/div&gt;          &lt;!-- max 1280px --&gt;
+&lt;div class="container container--md"&gt;...&lt;/div&gt; &lt;!-- max 960px --&gt;
+&lt;div class="container container--sm"&gt;...&lt;/div&gt; &lt;!-- max 720px --&gt;</pre>
+
+    <h4 style="margin:var(--space-6) 0 var(--space-4);">Grid</h4>
+    <pre>&lt;div class="grid grid--2"&gt;...&lt;/div&gt;  &lt;!-- 2 colunas iguais                    --&gt;
+&lt;div class="grid grid--3"&gt;...&lt;/div&gt;  &lt;!-- 3 colunas                           --&gt;
+&lt;div class="grid grid--4"&gt;...&lt;/div&gt;  &lt;!-- 4 col → 2 tablet → 1 mobile        --&gt;
+&lt;div class="grid grid--auto"&gt;...&lt;/div&gt; &lt;!-- auto-fit, mínimo 260px por coluna --&gt;
+
+&lt;!-- Gap padrão: --grid-gap = --space-6 (24px) --&gt;</pre>
+
+    <div class="grid grid--4" style="margin-bottom:var(--space-6);">
+      <div style="background:var(--color-blue-100);padding:var(--space-4);border-radius:var(--border-radius-md);text-align:center;"><code>col 1</code></div>
+      <div style="background:var(--color-blue-100);padding:var(--space-4);border-radius:var(--border-radius-md);text-align:center;"><code>col 2</code></div>
+      <div style="background:var(--color-blue-100);padding:var(--space-4);border-radius:var(--border-radius-md);text-align:center;"><code>col 3</code></div>
+      <div style="background:var(--color-blue-100);padding:var(--space-4);border-radius:var(--border-radius-md);text-align:center;"><code>col 4</code></div>
+    </div>
+
+    <h4 style="margin-bottom:var(--space-4);">Sections</h4>
+    <pre>&lt;!-- Padrão: fundo neutral-50, padding vertical 80px --&gt;
+&lt;section&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="section__header"&gt;
+      &lt;p class="section__eyebrow"&gt;Categoria&lt;/p&gt;
+      &lt;h2 class="section__title"&gt;Título da seção&lt;/h2&gt;
+      &lt;div class="section-divider"&gt;&lt;/div&gt;  &lt;!-- traço ciano --&gt;
+      &lt;p class="section__lead"&gt;Descrição.&lt;/p&gt;
+    &lt;/div&gt;
+    ...conteúdo...
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class="section--alt"&gt;...&lt;/section&gt;   &lt;!-- fundo branco --&gt;
+&lt;section class="section--dark"&gt;...&lt;/section&gt;  &lt;!-- fundo blue-900 --&gt;</pre>
+
+    <h4 style="margin:var(--space-6) 0 var(--space-4);">Header</h4>
+    <pre>&lt;header class="site-header"&gt;
+  &lt;!-- sticky, z-index 500, borda inferior roxa --&gt;
+  &lt;a href="/" class="site-header__logo"&gt;
+    Nome &lt;span class="site-header__logo-accent"&gt;Acento&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;nav class="nav"&gt;
+    &lt;a href="#" class="nav__link"&gt;Link&lt;/a&gt;
+    &lt;a href="#" class="nav__link is-active"&gt;Ativo&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;button class="btn btn--accent btn--sm"&gt;CTA&lt;/button&gt;
+&lt;/header&gt;</pre>
+
+    <h4 style="margin:var(--space-6) 0 var(--space-4);">Footer</h4>
+    <pre>&lt;footer class="site-footer"&gt;
+  &lt;!-- fundo blue-900, borda superior roxa --&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="site-footer__grid"&gt;  &lt;!-- 4 colunas --&gt;
+      &lt;div&gt;
+        &lt;p class="site-footer__col-title"&gt;Coluna&lt;/p&gt;
+        &lt;a href="#" class="site-footer__link"&gt;Link&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="site-footer__bar"&gt;
+      &lt;span&gt;© 2024 Organização&lt;/span&gt;
+      &lt;span&gt;Versão 1.0&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</pre>
+  </div>
+
+  <!-- ════════════════════════════
+       10 · COMPONENTES EXTRAS
+  ════════════════════════════ -->
+  <div class="ds-section">
+    <p class="ds-label">10 · Componentes Extras</p>
+
+    <div class="grid grid--2">
+      <div>
+        <h4 style="margin-bottom:var(--space-4);">Data Bar</h4>
+        <pre>&lt;div class="data-bar"&gt;
+  &lt;div class="data-bar__fill"
+    style="width: 65%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Por gênero --&gt;
+&lt;div class="data-bar__fill--male"  style="width:62%"&gt;
+&lt;div class="data-bar__fill--female" style="width:55%"&gt;
+&lt;!-- male = azul-500 / female = cyan-500 --&gt;</pre>
+
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);margin-top:var(--space-4);">
+          <div>
+            <div class="flex justify-between mb-4"><span class="label">Padrão (azul)</span><span>65%</span></div>
+            <div class="data-bar"><div class="data-bar__fill" style="width:65%;"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-4"><span class="label">--male (azul-500)</span><span>40%</span></div>
+            <div class="data-bar"><div class="data-bar__fill data-bar__fill--male" style="width:40%;"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-4"><span class="label">--female (ciano-500)</span><span>55%</span></div>
+            <div class="data-bar"><div class="data-bar__fill data-bar__fill--female" style="width:55%;"></div></div>
+          </div>
+        </div>
+
+        <h4 style="margin:var(--space-8) 0 var(--space-4);">Skeleton Loader</h4>
+        <pre>&lt;!-- .skeleton em qualquer elemento --&gt;
+&lt;div class="skeleton"
+  style="height:20px; width:60%"&gt;
+&lt;/div&gt;
+&lt;!-- Shimmer automático via @keyframes --&gt;</pre>
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);margin-top:var(--space-4);">
+          <div class="skeleton" style="height:16px;width:55%;"></div>
+          <div class="skeleton" style="height:14px;width:100%;"></div>
+          <div class="skeleton" style="height:14px;width:75%;"></div>
+          <div class="skeleton" style="height:80px;width:100%;border-radius:var(--border-radius-md);"></div>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="margin-bottom:var(--space-4);">Tooltip (puro CSS)</h4>
+        <pre>&lt;!-- data-tooltip em qualquer elemento --&gt;
+&lt;span data-tooltip="Texto da dica"&gt;
+  Passe o mouse aqui
+&lt;/span&gt;
+
+&lt;abbr data-tooltip="Pesquisa Nacional
+  de Saúde do Escolar"&gt;PeNSE&lt;/abbr&gt;
+
+&lt;button class="btn btn--secondary"
+  data-tooltip="Atalho: Ctrl+S"&gt;
+  Salvar
+&lt;/button&gt;</pre>
+        <div class="ds-row" style="margin-top:var(--space-4);gap:var(--space-6);">
+          <span data-tooltip="Tooltip puro CSS, sem JS" style="border-bottom:1px dashed var(--color-neutral-400);cursor:help;">Passe o mouse</span>
+          <abbr data-tooltip="Pesquisa Nacional de Saúde do Escolar" style="cursor:help;">PeNSE</abbr>
+          <button class="btn btn--secondary btn--sm" data-tooltip="Atalho: Ctrl+S">Salvar</button>
+        </div>
+
+        <h4 style="margin:var(--space-8) 0 var(--space-4);">Acessibilidade e Foco</h4>
+        <pre>&lt;!-- Anel de foco âmbar universal --&gt;
+:focus-visible {
+  outline: 2px solid var(--color-amber-300);
+  outline-offset: 3px;
+}
+
+&lt;!-- Redução de movimento (automático) --&gt;
+@media (prefers-reduced-motion: reduce) {
+  /* animações desligadas */
+}
+
+&lt;!-- Dark mode (automático via :root) --&gt;
+@media (prefers-color-scheme: dark) {
+  /* surface-page, surface-card, bordas
+     se adaptam via override das variáveis */
+}</pre>
+        <p style="margin-top:var(--space-4);">Pressione <kbd>Tab</kbd> para ver o anel de foco âmbar nos elementos interativos desta página.</p>
+
+        <h4 style="margin:var(--space-8) 0 var(--space-4);">Utilitários rápidos</h4>
+        <pre>.text-center  .text-right
+.flex  .flex-col  .items-center  .justify-between
+.gap-4  .gap-6
+.mt-4  .mt-8  .mb-4  .mb-8</pre>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__col-title">Design System</p>
+        <p style="font-size:var(--text-sm);line-height:var(--leading-relaxed);margin-bottom:var(--space-4);">
+          Guia de tokens, componentes e padrões para projetos de saúde pública e educação.<br>HTML · CSS Custom Properties · Zero dependências.
+        </p>
+        <span class="badge badge--purple">v1.0</span>
+      </div>
+      <div>
+        <p class="site-footer__col-title">Tokens</p>
+        <a href="#tokens" class="site-footer__link">Cores</a>
+        <a href="#tokens" class="site-footer__link">Espaçamento</a>
+        <a href="#tokens" class="site-footer__link">Tipografia</a>
+        <a href="#tokens" class="site-footer__link">Sombras / Radius</a>
+      </div>
+      <div>
+        <p class="site-footer__col-title">Componentes</p>
+        <a href="#botoes"  class="site-footer__link">Botões</a>
+        <a href="#forms"   class="site-footer__link">Formulários</a>
+        <a href="#tabelas" class="site-footer__link">Tabelas</a>
+        <a href="#tabs"    class="site-footer__link">Tabs</a>
+      </div>
+      <div>
+        <p class="site-footer__col-title">Extras</p>
+        <a href="#layout" class="site-footer__link">Layout e Grid</a>
+        <a href="#layout" class="site-footer__link">Header e Footer</a>
+        <a href="#"       class="site-footer__link">Cards e Badges</a>
+        <a href="#"       class="site-footer__link">Skeleton e Tooltip</a>
+      </div>
+    </div>
+    <div class="site-footer__bar">
+      <span>Design System · Saúde Pública &amp; Educação · Prevenção</span>
+      <span>HTML · CSS Custom Properties · Sem dependências</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function switchTab(groupId, triggerEl, panelId) {
+  const group = document.getElementById(groupId);
+  group.querySelectorAll('.tabs__trigger').forEach(t => t.classList.remove('is-active'));
+  group.querySelectorAll('.tabs__panel').forEach(p => p.classList.remove('is-active'));
+  triggerEl.classList.add('is-active');
+  document.getElementById(panelId).classList.add('is-active');
+}
+</script>
+</body>
+</html>
