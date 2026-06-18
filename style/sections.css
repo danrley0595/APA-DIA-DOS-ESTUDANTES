@@ -190,6 +190,12 @@ footer,
   .site-footer__grid {
     grid-template-columns: 1fr 1fr;
   }
+  .chart-grid--2 {
+    grid-template-columns: 1fr;
+  }
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -216,5 +222,8 @@ footer,
   }
   .site-header {
     padding: 0 var(--space-4);
+  }
+  .stat-row {
+    grid-template-columns: 1fr;
   }
 }
