@@ -9,49 +9,97 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>APA</title>
+    <title>APA - Drogas Ilícitas nas Escolas Brasileiras</title>
   </head>
 
   <body>
     <header class="site-header">
-      <a href="#" class="site-header__logo">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-          <rect width="28" height="28" rx="4" fill="#105BBA" />
-          <circle
-            cx="14"
-            cy="11"
-            r="5"
-            stroke="#F7941D"
-            stroke-width="2"
-            fill="none"
-          />
-          <path
-            d="M9 22 Q14 17 19 22"
-            stroke="#F7941D"
-            stroke-width="2"
-            fill="none"
-            stroke-linecap="round"
-          />
-        </svg>
+  <a href="#" class="site-header__logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="4" fill="#105BBA" />
+      <circle
+        cx="14"
+        cy="11"
+        r="5"
+        stroke="#F7941D"
+        stroke-width="2"
+        fill="none"
+      />
+      <path
+        d="M9 22 Q14 17 19 22"
+        stroke="#F7941D"
+        stroke-width="2"
+        fill="none"
+        stroke-linecap="round"
+      />
+    </svg>
+    APA<span class="site-header__logo-accent"> Estudantes</span>
+  </a>
 
-        APA<span class="site-header__logo-accent"> Estudantes</span>
-      </a>
+  <!-- Desktop -->
+  <nav class="nav nav--desktop ">
+    <div class="nav__links">
+      <a href="#inicio" class="nav__link is-active">Início</a>
+      <a href="#introducao" class="nav__link">Introdução</a>
+      <a href="#justificativa" class="nav__link">Justificativa</a>
+      <a href="#fatores" class="nav__link">Fatores</a>
+      <a href="#analises" class="nav__link">Análises</a>
+      <a href="#hipoteses" class="nav__link">Hipóteses</a>
+      <a href="#conclusoes" class="nav__link">Conclusões</a>
+      <a href="#campanha" class="nav__link">Marketing</a>
+      <a href="#tabelas" class="nav__link">Tabelas</a>
+    </div>
+  </nav>
 
-      <nav class="nav">
-        <a href="#inicio" class="nav__link is-active">Início</a>
-        <a href="#introducao" class="nav__link">Introdução</a>
-        <a href="#justificativa" class="nav__link">Justificativa</a>
-        <a href="#fatores" class="nav__link">Fatores</a>
-        <a href="#analises" class="nav__link">Análises</a>
-        <a href="#hipoteses" class="nav__link">Hipóteses</a>
-        <a href="#conclusoes" class="nav__link">Conclusões</a>
-        <a href="#tabelas" class="nav__link">Tabelas</a>
+  <button id="btn-dark" class="btn btn--accent btn--sm btn--desktop">Modo Escuro</button>
 
-        <button id="btn-dark" class="btn btn--accent btn--sm">
-          Modo Escuro
-        </button>
-      </nav>
-    </header>
+  <!-- Hamburguer -->
+  <button class="nav__hamburguer" id="btn-hamburguer">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<!-- Menu Mobile (fora do header, dentro do body) -->
+<div class="nav--mobile" id="nav-mobile">
+  <div class="nav--mobile__header">
+    <span class="nav--mobile__titulo">Menu</span>
+    <button class="nav--mobile__fechar" id="btn-fechar">&#10005;</button>
+  </div>
+  <nav class="nav--mobile__links">
+    <a href="#inicio" class="nav__link">Início</a>
+    <a href="#introducao" class="nav__link">Introdução</a>
+    <a href="#justificativa" class="nav__link">Justificativa</a>
+    <a href="#fatores" class="nav__link">Fatores</a>
+    <a href="#analises" class="nav__link">Análises</a>
+    <a href="#hipoteses" class="nav__link">Hipóteses</a>
+    <a href="#conclusoes" class="nav__link">Conclusões</a>
+    <a href="#campanha" class="nav__link">Marketing</a>
+    <a href="#tabelas" class="nav__link">Tabelas</a>
+  </nav>
+  <button id="btn-dark-mobile" class="btn btn--accent btn--sm">Modo Escuro</button>
+</div>
+
+    <!-- Menu Mobile -->
+  <div class="nav--mobile" id="nav-mobile">
+    <div class="nav--mobile__header">
+      <button id="btn-dark-mobile" class="btn btn--accent btn--sm">Modo Escuro</button>
+      <button class="nav--mobile__fechar" id="btn-fechar">&#10005;</button>
+    </div>
+    <nav class="nav--mobile__links">
+      <a href="#inicio" class="nav__link">Início</a>
+      <a href="#introducao" class="nav__link">Introdução</a>
+      <a href="#justificativa" class="nav__link">Justificativa</a>
+      <a href="#fatores" class="nav__link">Fatores</a>
+      <a href="#analises" class="nav__link">Análises</a>
+      <a href="#hipoteses" class="nav__link">Hipóteses</a>
+      <a href="#conclusoes" class="nav__link">Conclusões</a>
+      <a href="#campanha" class="nav__link">Marketing</a>
+      <a href="#tabelas" class="nav__link">Tabelas</a>
+    </nav>
+  </div>
+</header>
 
     <!-- HERO -->
 
@@ -324,39 +372,30 @@
             dos fatores de risco.
           </p>
         </div>
+      </section>
 
-        <!-- Container: usa .card do design-system -->
-        <div class="card slideshow" id="slider">
-          <!-- Slide 1 — começa com .is-active -->
-          <div class="slide is-active">
-            <img src="assets/publicidade01.jpeg" alt="Slide 1" />
-            <!-- legenda opcional -->
-            <div class="slide__caption">
-              <p class="label">Título do slide</p>
-            </div>
+      <!-- SEÇÃO 4: Campanha de Marketing -->
+      <section id="campanha" class="section section--dark oculto">
+        <div class="container">
+          <div class="section__header">
+            <span class="section__eyebrow"> Marketing </span>
+            <h2>Campanha de Conscientização</h2>
+            <div class="section-divider"></div>
           </div>
-
-          <!-- Slide 2 -->
-          <div class="slide">
-            <img src="assets/publicidade02.jpeg" alt="Slide 2" />
+          <p class="section__lead">
+            Os dados apontam para a necessidade de ações preventivas precoces,
+            fortalecimento das políticas educacionais e acompanhamento contínuo
+            dos fatores de risco.
+          </p>
+          <div class="carrossel">
+            <img
+              id="slide"
+              src="assets/publicidade01.jpeg"
+              alt="Peça da campanha de conscientização"
+            />
+            <video id="slide-video" controls></video>
+            <div class="carrossel__indicadores" id="indicadores"></div>
           </div>
-
-          <!-- Slide com vídeo -->
-          <div class="slide">
-            <video
-              src="assets/publicidade.mp4"
-              controls
-              muted
-              playsinline
-            ></video>
-          </div>
-
-          <!-- Setas: usam .btn do design-system -->
-          <button class="btn btn--dark btn--sm slide__prev">←</button>
-          <button class="btn btn--dark btn--sm slide__next">→</button>
-
-          <!-- Dots de navegação -->
-          <div class="slide__dots"></div>
         </div>
       </section>
 

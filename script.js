@@ -1,86 +1,127 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let sectionsOcultos = document.querySelectorAll('.oculto');
-    let btnChangeTheme = document.getElementById("btn-dark");
-    console.log(sectionsOcultos);
-    enableListeners();
+document.addEventListener('DOMContentLoaded', function () {
+  let sectionsOcultos = document.querySelectorAll('.oculto');
+  let btnChangeTheme = document.getElementById('btn-dark');
 
-    function checkScroll() {
-        let alturaJanela = window.innerHeight;
+  const imagens = [
+    { tipo: 'imagem', arquivo: 'assets/publicidade01.jpeg' },
+    { tipo: 'imagem', arquivo: 'assets/publicidade02.jpeg' },
+    { tipo: 'imagem', arquivo: 'assets/publicidade03.jpeg' },
+    { tipo: 'imagem', arquivo: 'assets/publicidade04.jpeg' },
+    { tipo: 'imagem', arquivo: 'assets/publicidade05.jpeg' },
+    { tipo: 'imagem', arquivo: 'assets/publicidade06.jpg' },
+    { tipo: 'video', arquivo: 'assets/publicidade.mp4' },
+  ];
 
-        sectionsOcultos.forEach((section) => {
-            const alturaSection = section.getBoundingClientRect().top;
-            console.log(alturaSection);
-            if (alturaSection < alturaJanela) {
-                section.classList.add('ativo');
-            }
+  let indice = 0;
 
-        });
+  enableListeners();
+  criarIndicadores();
 
+  function checkScroll() {
+    let alturaJanela = window.innerHeight;
+
+    sectionsOcultos.forEach((section) => {
+      const alturaSection = section.getBoundingClientRect().top;
+      if (alturaSection < alturaJanela) {
+        section.classList.add('ativo');
+      }
+    });
+  }
+
+  function alterarTema() {
+    document.documentElement.classList.toggle('dark');
+  }
+
+  function enableListeners() {
+    window.addEventListener('scroll', checkScroll);
+    btnChangeTheme.addEventListener('click', alterarTema);
+    checkScroll();
+  }
+
+  function atualizarSlide() {
+    const img = document.getElementById('slide');
+    const video = document.getElementById('slide-video');
+    const midia = imagens[indice];
+
+    if (midia.tipo === 'imagem') {
+      img.src = midia.arquivo;
+      img.style.display = 'block';
+      video.style.display = 'none';
+      video.pause();
+    } else if (midia.tipo === 'video') {
+      video.src = midia.arquivo;
+      video.style.display = 'block';
+      img.style.display = 'none';
+      video.muted = true;
+      video.play();
     }
 
-    function alterarTema() {
-        document.documentElement.classList.toggle("dark");
-    }
+    const indicadores = document.querySelectorAll('#indicadores span');
+    indicadores.forEach(function (ponto, i) {
+      ponto.classList.toggle('ativo', i === indice);
+    });
+  }
 
-    function enableListeners() {
-        window.addEventListener("scroll", checkScroll);
-        btnChangeTheme.addEventListener("click", alterarTema);
-    }
+  function criarIndicadores() {
+    const indicadores = document.getElementById('indicadores');
 
-    document.querySelectorAll('.slideshow').forEach(function(container) {
+    imagens.forEach(function (_, index) {
+      const ponto = document.createElement('span');
+      if (index === 0) ponto.classList.add('ativo');
+      ponto.addEventListener('click', function () {
+        indice = index;
+        atualizarSlide();
+      });
+      indicadores.appendChild(ponto);
+    });
 
-  const slides = container.querySelectorAll('.slide');
-  const dotsEl = container.querySelector('.slide__dots');
-  let atual = 0;
-  let intervalo;
+    setTimeout(function () {
+      function proximoSlide() {
+        const midia = imagens[indice];
+        const tempo = midia.tipo === 'video' ? 8000 : 8000;
 
-  // Cria dots automaticamente
-  slides.forEach(function(_, i) {
-    const d = document.createElement('button');
-    d.className = 'dot' + (i === 0 ? ' is-active' : '');
-    d.setAttribute('aria-label', 'Ir para slide ' + (i + 1));
-    d.addEventListener('click', function() { irPara(i); religar(); });
-    dotsEl.appendChild(d);
+        setTimeout(function () {
+          indice = (indice + 1) % imagens.length;
+          atualizarSlide();
+          proximoSlide();
+        }, tempo);
+      }
+
+      proximoSlide();
+    }, 2000);
+  }
+
+  // Menu hamburguer
+  const btnHamburguer = document.getElementById('btn-hamburguer');
+  const btnFechar = document.getElementById('btn-fechar');
+  const navMobile = document.getElementById('nav-mobile');
+  const btnDarkMobile = document.getElementById('btn-dark-mobile');
+
+  btnHamburguer.addEventListener('click', function (e) {
+    e.stopPropagation();
+    navMobile.classList.toggle('aberto');
   });
 
-  function irPara(n) {
-    // pausa vídeo ao sair do slide
-    const vid = slides[atual].querySelector('video');
-    if (vid) vid.pause();
+  btnFechar.addEventListener('click', function () {
+    navMobile.classList.remove('aberto');
+  });
 
-    slides[atual].classList.remove('is-active');
-    dotsEl.children[atual].classList.remove('is-active');
-    atual = (n + slides.length) % slides.length;
-    slides[atual].classList.add('is-active');
-    dotsEl.children[atual].classList.add('is-active');
-  }
+  // Fecha ao clicar fora do modal
+  document.addEventListener('click', function (e) {
+    if (!navMobile.contains(e.target) && !btnHamburguer.contains(e.target)) {
+      navMobile.classList.remove('aberto');
+    }
+  });
 
-  function iniciarAutoplay() {
-    intervalo = setInterval(function() {
-      const vid = slides[atual].querySelector('video');
-      if (!vid || vid.paused) irPara(atual + 1);
-    }, 5000); // avança a cada 5 segundos
-  }
+  // Fecha ao clicar em um link
+  document
+    .querySelectorAll('.nav--mobile__links .nav__link')
+    .forEach(function (link) {
+      link.addEventListener('click', function () {
+        navMobile.classList.remove('aberto');
+      });
+    });
 
-  function religar() {
-    clearInterval(intervalo);
-    // espera 4s depois de interação manual
-    setTimeout(function() {
-      iniciarAutoplay();
-    }, 4000);
-  }
-
-  // Setas
-  const prev = container.querySelector('.slide__prev');
-  const next = container.querySelector('.slide__next');
-  if (prev) prev.addEventListener('click', function() { irPara(atual - 1); religar(); });
-  if (next) next.addEventListener('click', function() { irPara(atual + 1); religar(); });
-
-  // Pausa ao passar o mouse
-  container.addEventListener('mouseenter', function() { clearInterval(intervalo); });
-  container.addEventListener('mouseleave', iniciarAutoplay);
-
-  iniciarAutoplay(); // inicia ao carregar
+  // Botão modo escuro do menu mobile
+  btnDarkMobile.addEventListener('click', alterarTema);
 });
-
-})
