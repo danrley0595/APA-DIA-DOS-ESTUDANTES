@@ -19,235 +19,506 @@
                 <rect width="28" height="28" rx="4" fill="#105BBA" />
                 <circle cx="14" cy="11" r="5" stroke="#F7941D" stroke-width="2" fill="none" />
                 <path d="M9 22 Q14 17 19 22" stroke="#F7941D" stroke-width="2" fill="none" stroke-linecap="round" />
-                <!-- Lembrar de alterar o icone -->
             </svg>
+
             APA<span class="site-header__logo-accent"> Estudantes</span>
         </a>
+
         <nav class="nav">
-            <a href="#inicio" class="nav__link is-active">início</a>
+            <a href="#inicio" class="nav__link is-active">Início</a>
             <a href="#introducao" class="nav__link">Introdução</a>
             <a href="#justificativa" class="nav__link">Justificativa</a>
-            <a href="#fatores" class="nav__link">Fatores de Influência</a>
+            <a href="#fatores" class="nav__link">Fatores</a>
             <a href="#analises" class="nav__link">Análises</a>
             <a href="#hipoteses" class="nav__link">Hipóteses</a>
             <a href="#conclusoes" class="nav__link">Conclusões</a>
             <a href="#tabelas" class="nav__link">Tabelas</a>
-            <button id="btn-dark">Modo Escuro</button>
+
+            <button id="btn-dark" class="btn btn--accent btn--sm">
+                Modo Escuro
+            </button>
         </nav>
     </header>
 
+    <!-- HERO -->
 
     <section id="inicio" class="hero">
-        <div class="container">
-            <span class="hero__eyebrow">APA</span>
-            <h1 class="hero__title">O Ciclo da Exposição<br><mark>Uma Análise de Dados sobre Drogas e Violência no
-                    Ambiente escolar</mark></h1>
-            <p class="hero__lead">Curso: Técnico em Ciência de Dados
-                Alunos:
-                1.</p>
-        </div>
-    </section>
-    <main class="container">
-        <section id="introducao" class="oculto">
-            <!-- Adicionar Carossel do Andre -->
-            <h2 style="margin-bottom:var(--space-4);">Introdução e Contexto
-                Social</h2>
-            <p>A adolescência é reconhecida como uma das fases de maior vulnerabilidade ao longo do desenvolvimento
-                humano.
-                É nesse período que jovens estão mais expostos a influências externas, pressão de pares e situações de
-                risco
-                — incluindo
-                o primeiro contato com drogas e ambientes violentos</p>
-            <h3>Por que usar Ciência de Dados?
-            </h3>
-            <p>Evidências estatísticas robustas são fundamentais para a criação de políticas
-                públicas eficazes. Sem dados confiáveis, intervenções preventivas perdem
-                precisão e alcance. A Ciência de Dados permite identificar padrões, correlações e
-                tendências que orientam decisões de alto impacto social.
+        <div class="container container--md text-center">
+
+            <span class="hero__eyebrow">
+                APA • Ciência de Dados
+            </span>
+
+            <h1 class="hero__title">
+                O Ciclo da Exposição:
+                <br>
+                <mark>
+                    Uma Análise de Dados sobre Drogas e Violência
+                    no Ambiente Escolar
+                </mark>
+            </h1>
+
+            <p class="hero__lead">
+                Projeto desenvolvido no Curso Técnico em Ciência de Dados,
+                utilizando informações da Pesquisa Nacional de Saúde do Escolar
+                (PeNSE) para investigar fatores de risco associados ao uso precoce
+                de substâncias e à violência escolar.
             </p>
-            <h3>Infográfico</h3>
-            <div>****??</div>
-            <p>Os dados analisados nesta apresentação provêm da Tabela 1.1.1 da PeNSE 2024, que estima a população total
-                de
-                escolares brasileiros entre 13 e 17 anos.
-            </p>
-            <h2>Metodologia e Fonte de Dados</h2>
-            <p>RIGOR CIENTÍFICO</p>
-            <h3>O que é a PeNSE?</h3>
-            <p>A Pesquisa Nacional de Saúde do Escolar (PeNSE) é conduzida pelo
-                IBGE em parceria com o Ministério da Saúde. Seu objetivo é monitorar
-                fatores de risco e proteção à saúde de adolescentes matriculados no
-                ensino fundamental e médio em todo o Brasil.
-            </p>
-            <ul>
-                <li>Ano de referência: 2019 e 2024;</li>
-                <li>Público-alvo: escolares de 13 a 17 anos;</li>
-                <li>Abrangência: todas as Grandes Regiões do Brasil;</li>
-                <li>Intervalo de Confiança adotado: 95%;</li>
-                <li>Cobertura: escolas públicas e privadas.</li>
-            </ul>
-            <p>O Intervalo de Confiança de 95% garante que os resultados
-                apresentados refletem com alta precisão a realidade da
-                população estudada, minimizando margens de erro amostral.</p>
-            <div class="table-wrapper">
-                <thead>
-                    <table>
-                        <tr>
-                            <th>Variável</th>
-                            <th>Tabela PeNSE</th>
-                            <th>Tema</th>
-                        </tr>
-                </thead>
-                <tr>
-                    <td>Tabagismo precoce</td>
-                    <td>5.2.1</td>
-                    <td>Cigarro Convencional</td>
-                </tr>
-                <tr>
-                    <td>Cigarros eletrônicos</td>
-                    <td>5.8.1</td>
-                    <td>Vapes e pods</td>
-                </tr>
-                <tr>
-                    <td>Álcool precoce</td>
-                    <td> 6.2.1</td>
-                    <td>Primeira dose ≤ 13 anos</td>
-                </tr>
-                <tr>
-                    <td>Drogas ilícitas</td>
-                    <td>7.2.1</td>
-                    <td>Experimentação precoce</td>
-                </tr>
-                <tr>
-                    <td>Influência de pares</td>
-                    <td>7.6.1</td>
-                    <td>Amigos usuários</td>
-                </tr>
-                <tr>
-                    <td>Violência escolar</td>
-                    <td>17.1.1 </td>
-                    <td>Percepção de diretores</td>
-                </tr>
-                </table>
+
+            <div class="hero__actions">
+                <a href="#introducao" class="btn btn--accent">
+                    Explorar Estudo
+                </a>
+
+                <a href="#tabelas" class="btn btn--secondary">
+                    Ver Tabelas
+                </a>
             </div>
 
-            <section id="justificativa">
-                <!-- Adicionar Carossel do Andre -->
-                <h2>O Alerta da Precocidade: Tabagismo</h2>
-                <p>TABELA 5.2.1 — PENSE 2024</p>
-                <p>A experimentação de cigarro com 13 anos ou menos revela um padrão preocupante de iniciação precoce ao
-                    tabaco. A comparação entre as Grandes Regiões e por sexo evidencia disparidades regionais
-                    significativas
-                    que
-                    devem orientar políticas de prevenção localizadas.</p>
-                <div>****grafico</div>
-                <p>A Região Sul apresenta os maiores índices de experimentação precoce de cigarro tanto entre meninos
-                    quanto
-                    entre meninas, enquanto o Sudeste registra os menores percentuais. Essa variação regional reforça a
-                    necessidade
-                    de estratégias de prevenção adaptadas às realidades locais.</p>
-                <h2>A Nova Fronteira: Cigarros Eletrônicos</h2>
-                <p>TABELA 5.8.1 — PENSE 2024
+        </div>
+    </section>
+
+    <main>
+
+        <!-- INTRODUÇÃO -->
+
+        <section id="introducao" class="section oculto">
+
+            <div class="container">
+
+                <div class="section__header">
+                    <span class="section__eyebrow">
+                        Contexto Social
+                    </span>
+
+                    <h2 class="section__title">
+                        Introdução e Contexto Social
+                    </h2>
+
+                    <div class="section-divider"></div>
+
+                    <p class="section__lead">
+                        A adolescência é uma fase marcada por transformações
+                        biológicas, emocionais e sociais que aumentam a
+                        vulnerabilidade a comportamentos de risco.
+                    </p>
+                </div>
+
+                <div class="grid grid--2">
+
+                    <div class="card card--accent">
+                        <div class="card__body">
+                            <h4 class="card__title mb-4">
+                                Vulnerabilidade na Adolescência
+                            </h4>
+
+                            <p>
+                                É nesse período que jovens estão mais expostos
+                                à pressão dos colegas, experimentação de
+                                substâncias psicoativas e ambientes violentos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__body">
+                            <h4 class="card__title mb-4">
+                                Por que usar Ciência de Dados?
+                            </h4>
+
+                            <p>
+                                A análise estatística permite identificar
+                                padrões, correlações e tendências que orientam
+                                decisões públicas baseadas em evidências.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- METODOLOGIA -->
+
+        <section class="section section--alt">
+
+            <div class="container">
+
+                <div class="section__header">
+
+                    <span class="section__eyebrow">
+                        Metodologia
+                    </span>
+
+                    <h2 class="section__title">
+                        Metodologia e Fonte de Dados
+                    </h2>
+
+                    <div class="section-divider"></div>
+
+                </div>
+
+                <div class="alert alert--info mb-8">
+
+                    <div>
+                        <h4 class="alert__title">
+                            O que é a PeNSE?
+                        </h4>
+
+                        <p>
+                            A Pesquisa Nacional de Saúde do Escolar (PeNSE)
+                            é realizada pelo IBGE em parceria com o Ministério
+                            da Saúde para monitorar fatores de risco e proteção
+                            à saúde de adolescentes brasileiros.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="grid grid--2">
+
+                    <div class="card">
+                        <div class="card__body">
+
+                            <ul>
+                                <li>Ano de referência: 2019 e 2024</li>
+                                <li>Faixa etária: 13 a 17 anos</li>
+                                <li>Escolas públicas e privadas</li>
+                                <li>Intervalo de confiança: 95%</li>
+                                <li>Abrangência nacional</li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="card card--dark">
+                        <div class="card__body">
+                            <h4 class="card__title mb-4">
+                                Rigor Científico
+                            </h4>
+
+                            <p>
+                                O intervalo de confiança de 95% garante alta
+                                precisão estatística e reduz erros amostrais.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- JUSTIFICATIVA -->
+
+        <section id="justificativa" class="section oculto">
+
+            <div class="container">
+
+                <div class="section__header">
+
+                    <span class="section__eyebrow">
+                        Tabagismo
+                    </span>
+
+                    <h2 class="section__title">
+                        O Alerta da Precocidade
+                    </h2>
+
+                    <div class="section-divider"></div>
+
+                </div>
+
+                <span class="badge badge--amber mb-4">
+                    Tabela 5.2.1 — PeNSE 2024
+                </span>
+
+                <div class="card">
+                    <div class="card__body">
+
+                        <p>
+                            A experimentação precoce do cigarro revela padrões
+                            preocupantes de exposição ao tabaco entre adolescentes.
+                        </p>
+
+                        <div class="skeleton" style="height:300px;"></div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FATORES -->
+
+        <section id="fatores" class="section oculto">
+
+            <div class="container">
+
+                <div class="section__header">
+
+                    <span class="section__eyebrow">
+                        Influências
+                    </span>
+
+                    <h2 class="section__title">
+                        Fatores de Influência
+                    </h2>
+
+                    <div class="section-divider"></div>
+
+                </div>
+
+                <div class="grid grid--3">
+
+                    <div class="card card--stat">
+                        <span class="stat">31,7%</span>
+                        <p>Escolas privadas</p>
+                    </div>
+
+                    <div class="card card--stat">
+                        <span class="stat">22,4%</span>
+                        <p>Escolas públicas</p>
+                    </div>
+
+                    <div class="card card--stat">
+                        <span class="stat">95%</span>
+                        <p>Confiabilidade</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ANALISES -->
+
+        <section id="analises" class="section oculto">
+
+            <div class="container">
+
+                <div class="section__header">
+
+                    <span class="section__eyebrow">
+                        Dados
+                    </span>
+
+                    <h2 class="section__title">
+                        Análises Estatísticas
+                    </h2>
+
+                    <div class="section-divider"></div>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card__header">
+                        <h3 class="card__title">
+                            Relação entre Drogas e Violência Escolar
+                        </h3>
+                    </div>
+
+                    <div class="card__body">
+                        <div class="skeleton" style="height:400px;"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- HIPÓTESES -->
+
+        <section id="hipoteses" class="section oculto">
+
+            <div class="container">
+
+                <div class="section__header">
+
+                    <span class="section__eyebrow">
+                        Pesquisa
+                    </span>
+
+                    <h2 class="section__title">
+                        Hipóteses Investigadas
+                    </h2>
+
+                    <div class="section-divider"></div>
+
+                </div>
+
+                <div class="grid grid--2">
+
+                    <div class="card">
+                        <div class="card__body">
+                            <h4 class="card__title mb-4">
+                                Hipótese 1
+                            </h4>
+
+                            <p>
+                                A exposição precoce às drogas aumenta a
+                                probabilidade de contato com ambientes violentos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__body">
+                            <h4 class="card__title mb-4">
+                                Hipótese 2
+                            </h4>
+
+                            <p>
+                                A influência dos pares desempenha papel central
+                                na experimentação de substâncias.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CONCLUSÕES -->
+
+        <section id="conclusoes" class="section section--dark oculto">
+
+            <div class="container">
+
+                <div class="section__header">
+
+                    <span class="section__eyebrow">
+                        Resultados
+                    </span>
+
+                    <h2 class="section__title">
+                        Conclusões
+                    </h2>
+
+                    <div class="section-divider"></div>
+
+                </div>
+
+                <p class="section__lead">
+                    Os dados apontam para a necessidade de ações preventivas
+                    precoces, fortalecimento das políticas educacionais e
+                    acompanhamento contínuo dos fatores de risco.
                 </p>
-                <p>Os dispositivos eletrônicos para fumar — vapes e pods — representam uma ameaça emergente e crescente
-                    entre
-                    adolescentes brasileiros. A análise por dependência administrativa revela diferenças marcantes entre
-                    escolas públicas e
-                    privadas, desafiando a percepção de que o problema se concentra apenas em determinados contextos
-                    socioeconômicos</p>
-                <div>***grafico</div>
-                <p>Escolares de escolas privadas apresentam maior prevalência de experimentação de cigarros eletrônicos
-                    (31,7%)
-                    em comparação com os de escolas públicas (22,4%), indicando que o acesso econômico ao produto é um
-                    fator
-                    determinante.</p>
 
-                <h2>Álcool: A Droga de Maior Aceitação Social</h2>
-                <p>TABELA 6.2.1 — PENSE 2024</p>
-                <p>O álcool é a substância psicoativa de maior aceitação cultural no Brasil, o que contribui diretamente
-                    para a
-                    precocidade do seu consumo entre adolescentes. O percentual de escolares que relataram ter tomado a
-                    primeira
-                    dose com 13 anos ou menos é alarmante em todas as regiões do país.</p>
-                <div>***grafico</div>
-                <p>Em todas as regiões, meninos apresentam maior prevalência de consumo precoce de álcool do que
-                    meninas. A
-                    Região Sul lidera os índices, com 38,5% dos meninos relatando a primeira dose antes dos 13 anos —
-                    dado que
-                    reforça a urgência de intervenções preventivas no ensino fundamental.</p>
+            </div>
 
         </section>
-        <section id="fatores" class="oculto">
-            <!-- Adicionar Carossel do Andre -->
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum pariatur error similique architecto,
-                totam
-                excepturi placeat illum, ipsam nemo iste libero culpa magnam necessitatibus. Laudantium error molestias
-                ad
-                temporibus vel.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nemo obcaecati exercitationem ipsam, non
-                maxime consectetur deserunt sequi, distinctio dicta minima, accusantium quos iste unde voluptas nulla
-                iusto
-                minus harum.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum commodi adipisci ea laborum est, saepe,
-                vitae
-                dicta beatae nisi perferendis ipsam ullam blanditiis odio, numquam aspernatur veritatis alias quod
-                recusandae.</p>
-        </section>
-        <section id="hipoteses" class="oculto">
-            <!-- Adicionar Carossel do Andre -->
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum pariatur error similique architecto,
-                totam
-                excepturi placeat illum, ipsam nemo iste libero culpa magnam necessitatibus. Laudantium error molestias
-                ad
-                temporibus vel.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nemo obcaecati exercitationem ipsam, non
-                maxime consectetur deserunt sequi, distinctio dicta minima, accusantium quos iste unde voluptas nulla
-                iusto
-                minus harum.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum commodi adipisci ea laborum est, saepe,
-                vitae
-                dicta beatae nisi perferendis ipsam ullam blanditiis odio, numquam aspernatur veritatis alias quod
-                recusandae.</p>
+
+        <!-- TABELAS -->
+
+        <section id="tabelas" class="section oculto">
+
+            <div class="container">
+
+                <div class="section__header">
+
+                    <span class="section__eyebrow">
+                        Base de Dados
+                    </span>
+
+                    <h2 class="section__title">
+                        Tabelas Utilizadas
+                    </h2>
+
+                    <div class="section-divider"></div>
+
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Variável</th>
+                                <th>Tabela PeNSE</th>
+                                <th>Tema</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Tabagismo precoce</td>
+                                <td>5.2.1</td>
+                                <td>Cigarro Convencional</td>
+                            </tr>
+
+                            <tr>
+                                <td>Cigarros eletrônicos</td>
+                                <td>5.8.1</td>
+                                <td>Vapes e Pods</td>
+                            </tr>
+
+                            <tr>
+                                <td>Álcool precoce</td>
+                                <td>6.2.1</td>
+                                <td>Primeira dose ≤ 13 anos</td>
+                            </tr>
+
+                            <tr>
+                                <td>Drogas ilícitas</td>
+                                <td>7.2.1</td>
+                                <td>Experimentação precoce</td>
+                            </tr>
+
+                            <tr>
+                                <td>Influência de pares</td>
+                                <td>7.6.1</td>
+                                <td>Amigos usuários</td>
+                            </tr>
+
+                            <tr>
+                                <td>Violência escolar</td>
+                                <td>17.1.1</td>
+                                <td>Percepção dos diretores</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
 
         </section>
-        <section id="conclusoes" class="oculto">
-            <!-- Adicionar Carossel do Andre -->
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum pariatur error similique architecto,
-                totam
-                excepturi placeat illum, ipsam nemo iste libero culpa magnam necessitatibus. Laudantium error molestias
-                ad
-                temporibus vel.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nemo obcaecati exercitationem ipsam, non
-                maxime consectetur deserunt sequi, distinctio dicta minima, accusantium quos iste unde voluptas nulla
-                iusto
-                minus harum.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum commodi adipisci ea laborum est, saepe,
-                vitae
-                dicta beatae nisi perferendis ipsam ullam blanditiis odio, numquam aspernatur veritatis alias quod
-                recusandae.</p>
 
-        </section>
-        <section id="tabelas" class="oculto">
-            <!-- Adicionar Carossel do Andre -->
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum pariatur error similique architecto,
-                totam
-                excepturi placeat illum, ipsam nemo iste libero culpa magnam necessitatibus. Laudantium error molestias
-                ad
-                temporibus vel.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nemo obcaecati exercitationem ipsam, non
-                maxime consectetur deserunt sequi, distinctio dicta minima, accusantium quos iste unde voluptas nulla
-                iusto
-                minus harum.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum commodi adipisci ea laborum est, saepe,
-                vitae
-                dicta beatae nisi perferendis ipsam ullam blanditiis odio, numquam aspernatur veritatis alias quod
-                recusandae.</p>
-
-            </section>
-
-
-        </section>
     </main>
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="site-footer__bar">
+
+                <span>
+                    APA Estudantes • Ciência de Dados
+                </span>
+
+                <span>
+                    Pesquisa baseada na PeNSE 2024
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
 
     <script src="script.js"></script>
 </body>
