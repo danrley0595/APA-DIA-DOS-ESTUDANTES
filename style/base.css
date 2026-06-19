@@ -1,0 +1,167 @@
+/* ── Reset & Box Model ───────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── CSS Custom Properties ───────────────────────────────── */
+:root {
+  --color-blue-900: #031a38;
+  --color-blue-700: #0a3469;
+  --color-blue-500: #105bba;
+  --color-blue-300: #4da1ff;
+  --color-blue-200: #99cfff;
+  --color-blue-100: #e5f2ff;
+
+  --color-cyan-700: #005b8f;
+  --color-cyan-500: #0073b7;
+  --color-cyan-300: #00b4d8;
+  --color-cyan-100: #e0f7fa;
+
+  --color-amber-500: #c26a00;
+  --color-amber-300: #f7941d;
+  --color-amber-100: #fff5e5;
+
+  --color-data-male: #105bba;
+  --color-data-female: #0073b7;
+
+  --color-success: #059669;
+  --color-success-light: #d1fae5;
+  --color-warning: #c26a00;
+  --color-warning-light: #fff5e5;
+  --color-error: #dc2626;
+  --color-error-light: #fee2e2;
+  --color-info: #105bba;
+  --color-info-light: #e5f2ff;
+
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-600: #475569;
+  --color-neutral-800: #1e293b;
+  --color-neutral-900: #0f172a;
+
+  --color-white: #ffffff;
+
+  --surface-page: var(--color-neutral-50);
+  --surface-card: var(--color-white);
+  --surface-dark: var(--color-blue-900);
+  --surface-mid: var(--color-blue-700);
+  --surface-hover: var(--color-neutral-50);
+  --table-row-even: rgba(16, 91, 186, 0.04);
+
+  --text-primary: var(--color-neutral-800);
+  --text-secondary: var(--color-neutral-600);
+  --text-muted: #64748b;
+  --text-inverse: var(--color-white);
+  --text-accent: var(--color-blue-500);
+
+  --border-color: var(--color-neutral-200);
+  --border-color-dark: var(--color-blue-700);
+  --border-radius-xs: 2px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 20px;
+  --border-radius-pill: 999px;
+
+  --font-display: 'Sora', 'Inter', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  --shadow-xs: 0 1px 2px rgba(3, 26, 56, 0.06);
+  --shadow-sm: 0 2px 6px rgba(3, 26, 56, 0.1);
+  --shadow-md: 0 4px 16px rgba(3, 26, 56, 0.13);
+  --shadow-lg: 0 8px 32px rgba(3, 26, 56, 0.17);
+  --shadow-xl: 0 16px 48px rgba(3, 26, 56, 0.21);
+
+  --transition-fast: 120ms ease;
+  --transition-base: 220ms ease;
+  --transition-slow: 360ms ease;
+
+  --container-max: 1280px;
+  --container-md: 960px;
+  --container-sm: 720px;
+  --grid-gap: var(--space-6);
+
+  --z-base: 0;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+  --z-nav: 500;
+}
+
+html.dark {
+  --surface-page: #0b1120;
+  --surface-card: #151e32;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: #1e293b;
+  --surface-hover: #1e293b;
+  --table-row-even: rgba(255, 255, 255, 0.03);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-amber-300);
+  outline-offset: 3px;
+}
