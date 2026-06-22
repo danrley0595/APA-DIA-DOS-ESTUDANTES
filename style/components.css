@@ -534,3 +534,9 @@ tfoot td {
   font-weight: var(--weight-semibold);
   margin-bottom: var(--space-1);
 }
+
+@media (max-width: 1024px) {
+  .badge {
+    white-space: normal;
+  }
+}

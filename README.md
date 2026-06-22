@@ -1,4 +1,4 @@
-# APA Estudantes — Ciência de Dados
+# APA - Dia Internacional do Estudante
 
 Projeto desenvolvido na Escola do Futuro do Estado de Goiás José Luiz Bittencourt,
 como Atividade Prático-Acadêmica (APA) integrada entre os cursos de
@@ -29,8 +29,8 @@ projeto/
 │   ├── carousel.css
 │   └── animations.css
 └── assets/
-├── graficos/
-└── publicidade/
+├── dados/
+└── docs/
 ```
 
 ## Funcionalidades
