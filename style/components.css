@@ -263,6 +263,9 @@ tfoot td {
 .card--dark .card__header {
   border-color: var(--color-blue-700);
 }
+.card--dark p {
+  color: rgba(255, 255, 255, 0.72);
+}
 .card--dark .card__footer {
   background: rgba(0, 0, 0, 0.2);
   border-color: var(--color-blue-700);
@@ -530,4 +533,10 @@ tfoot td {
   display: block;
   font-weight: var(--weight-semibold);
   margin-bottom: var(--space-1);
+}
+
+@media (max-width: 1024px) {
+  .badge {
+    white-space: normal;
+  }
 }
